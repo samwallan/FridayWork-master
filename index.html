@@ -11,16 +11,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-
-
-<!--
-<label for="input">Search: </label><input id="input" type="search" >
-<button type="button" id="myButton" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">Submit</button>
-
-<table id="output" class="table table-hover table-bordered"></table>
-
--->
+<body id="body">
 
 <div data-role="page" id="page1">
     <div data-role="header">
@@ -31,19 +22,16 @@
         <input type="text" name="name" id="basic" value="">
     </div>
     <div>
-        <input type="button" value="Search" id="myButton">
-    </div>
-
-
-
-
-<div>
-        <ol data-role="listview" id="output">
-            
-        </ol>
+        <input type="button" value="Search" id="myButton" >
     </div>
 </div>
 
+<div data-role="page" id="page2">
+<div>
+    <ol data-role="listview" id="output">
+    </ol>
+</div>
+</div>
 
 </body>
 </html>

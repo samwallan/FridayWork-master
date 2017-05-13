@@ -60,10 +60,19 @@ function processFunction(result) {
 
     var splitTheme = $output.listview("option", "splitTheme");
 
-// Setter
     $output.listview( "option", "splitTheme", "b" );
     for(var i = 0; i < result.results.length; i++) {
-        $output.append("<li class='ui-li-has-alt ui-li-has-thumb ui-first-child'><a href='https://www.google.com/search?q="+result.results[i].trackName+" by "+result.results[i].artistName+"&oq=drake&aqs=chrome.0.0l6.3575j0j8&sourceid=chrome&ie=UTF-8' class='ui-btn'><img src='" + result.results[i].artworkUrl60 + "'><h3>" + result.results[i].trackName + "</h3><p>" + result.results[i].artistName + "</p></a></li>");
+        $output.append("<li class='ui-li-has-alt ui-li-has-thumb ui-first-child'><a href='#page"+(i+3)+"' class='ui-btn'><img src='" + result.results[i].artworkUrl60 + "'><h3>" + result.results[i].trackName + "</h3><p>" + result.results[i].artistName + "</p></a></li>");
+
+        $('#body').append("<div data-role='page' id='page"+(i+3)+"'><div data-role='main' class='ui-content'><ol data-role='listview' id='trackInfo'><img src='" + result.results[i].artworkUrl60 + "'><h3>" + result.results[i].trackName + "</h3><p>" + result.results[i].artistName + "</p></a></ol>");
+
+        $("body").pagecontainer("change", "#page2", { transition: "slideup"});
+
+        //https://www.google.com/search?q="+result.results[i].trackName+" by "+result.results[i].artistName+"&oq=drake&aqs=chrome.0.0l6.3575j0j8&sourceid=chrome&ie=UTF-8
+
+
+
+
 
         //result.results[i].artistName
         //result.results[i].trackName
