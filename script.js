@@ -1,28 +1,3 @@
-/**
- * Created by h205p2 on 5/12/17.
- */
-/*
-$(document).ready(function() {
-    var y =
-        [{"text": 'Go to Index', "url": '#page1'},
-            {"text": 'Go to Page 2', "url": '#page2'},
-            {"text": 'Go to Page 3', "url": '#page3'},
-            {"text": 'Go to Page 4', "url": '#page4'}];
-
-    for(var i=0; i< y.length; i++) {
-
-        $("#thing1,#thing2,#thing3,#thing4").append("<li><a  data-transition='fade' href='" + y[i].url + "'>" + y[i].text + "</a></li>")
-
-
-    }
-
-    $("#thing1,#thing2,#thing3,#thing4").listview( "refresh" );
-
-
-});
-*/
-
-
 $(document).ready(function(){
 
     var $submit = $("#myButton");
@@ -54,7 +29,7 @@ $(document).ready(function(){
 
 function processFunction(result) {
     var $output = $("#output");
-    //write a for loop that iterates over result.results and output data to the page
+
     $output.listview({
         splitTheme: "b"
     });
@@ -64,9 +39,9 @@ function processFunction(result) {
     $output.listview( "option", "splitTheme", "b" );
 
     for(var i = 0; i < result.results.length; i++) {
-        $output.append("<li class='ui-li-has-alt ui-li-has-thumb ui-first-child'><a href='#page"+(i+3)+"' class='ui-btn'><img src='" + result.results[i].artworkUrl60 + "'><h3>" + result.results[i].trackName + "</h3><p>" + result.results[i].artistName + "</p></a></li>");
+        $output.append("<li class='ui-li-has-alt ui-li-has-thumb ui-first-child' id='"+(i+3)+"'><a href='#page"+(i+3)+"' class='ui-btn'><img src='" + result.results[i].artworkUrl60 + "'><h3>" + result.results[i].trackName + "</h3><p >" + result.results[i].artistName + "</p></a></li>");
 
-        $('#body').append("<div data-role='page' id='page"+(i+3)+"'><div data-role='main' class='ui-content'><ol data-role='listview' id='trackInfo'><img src='" + result.results[i].artworkUrl60 + "'><h3>" + result.results[i].trackName + "</h3><p>" + result.results[i].artistName + "</p></a></ol>");
+        $('#body').append("<div data-role='page' id='page"+(i+3)+"'><div data-role='main' class='ui-content'><li data-role='listview' id='trackInfo'><img src='" + result.results[i].artworkUrl60 + "'><h3>" + result.results[i].trackName + "</h3><a href='"+result.results[i].previewUrl+"' class='ui-btn'><p >Take me to the song preview</p> </a> <p >"+result.results[i].trackViewUrl+"</p></a></li>");
 
 
 
@@ -89,7 +64,7 @@ function processFunction(result) {
          </li>
          */
     }
-    $("body").pagecontainer("change", "#page2", { transition: "slideup"});
+    $("body").pagecontainer("change", "#page2", { transition: "fade"});
 }
 function changeSpace(value){
     var returnValue = "";
@@ -103,3 +78,5 @@ function changeSpace(value){
     }
     return returnValue
 }
+
+
