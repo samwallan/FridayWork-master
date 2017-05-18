@@ -9,10 +9,10 @@ $(document).ready(function(){
         $output.empty();
         var search = changeSpace($input.val());
         $.ajax({
-            url: "https://itunes.apple.com/search?term=" + search,
+            url: "https://watson-api-explorer.mybluemix.net/tone-analyzer/api/v3/tone?version=2016-05-19&text=x" ,//+ search,
             type: 'GET',
             crossDomain: true,
-            dataType: 'jsonp',
+            dataType: 'json',
             success: function(result) {
                 console.log(result);
                 processFunction(result);
@@ -25,6 +25,10 @@ $(document).ready(function(){
     });
 
 });
+
+//https://watson-api-explorer.mybluemix.net/tone-analyzer/api/v3/tone?version=2016-05-19&text=x
+//https://watson-api-explorer.mybluemix.net/natural-language-understanding/api/v1/analyze?version=2017-02-27&text=x&features=keywords&return_analyzed_text=false&clean=true&fallback_to_raw=true&concepts.limit=8&emotion.document=true&entities.limit=50&entities.emotion=false&entities.sentiment=false&keywords.limit=50&keywords.emotion=false&keywords.sentiment=false&relations.model=en-news&semantic_roles.limit=50&semantic_roles.entities=false&semantic_roles.keywords=false&sentiment.document=true
+
 
 
 function processFunction(result) {
